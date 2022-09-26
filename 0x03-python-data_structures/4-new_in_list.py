@@ -1,9 +1,17 @@
 #!/usr/bin/python3
-def no_c(my_string):
-    my_string_list = list(my_string)
-    index_count = 0
-    for index in my_string_list:
-        if index == 'c' or index == 'C':
-            my_string_list[index_count] = ""
-            index_count += 1
-            return "".join(my_string_list)
+
+
+
+
+
+def new_in_list(my_list, idx, element):
+
+    my_list_cpy = my_list[:]
+
+    if (idx < 0 or idx >= len(my_list)):
+
+        return (my_list_cpy)
+
+    my_list_cpy[idx] = element
+
+    return (my_list_cpy)
