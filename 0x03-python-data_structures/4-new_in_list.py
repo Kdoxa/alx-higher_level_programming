@@ -1,17 +1,5 @@
 #!/usr/bin/python3
 
 
-
-
-
-def new_in_list(my_list, idx, element):
-
-    my_list_cpy = my_list[:]
-
-    if (idx < 0 or idx >= len(my_list)):
-
-        return (my_list_cpy)
-
-    my_list_cpy[idx] = element
-
-    return (my_list_cpy)
+def divisible_by_2(my_list=[]):
+    return [(i % 2) == 0 for i in my_list]
