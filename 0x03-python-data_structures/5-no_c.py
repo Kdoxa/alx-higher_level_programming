@@ -7,3 +7,4 @@ def no_c(my_string):
             my_string_list[index_count] = ""
             index_count += 1
             return "".join(my_string_list)
+
