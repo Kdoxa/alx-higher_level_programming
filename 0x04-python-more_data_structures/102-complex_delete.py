@@ -2,10 +2,16 @@
 
 def complex_delete(a_dictionary, value):
 
-    for k, v in dict(a_dictionary).items():
+    list_keys = list(a_dictionary.keys())
 
-        if v == value:
 
-            del a_dictionary[k]
 
-            return a_dictionary
+    for value_dic in list_keys:
+
+        if value == a_dictionary.get(value_dic):
+
+            del a_dictionary[value_dic]
+
+
+
+            return (a_dictionary)
