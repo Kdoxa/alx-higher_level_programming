@@ -1,39 +1,79 @@
 #!/usr/bin/python3
 
-def roman_to_int(roman_string):
+def to_subtract(list_num):
 
-    numerals = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
+    to_sub = 0
 
-            'C': 100, 'D': 500, 'M': 1000}
+    max_list = max(list_num)
 
-    if type(roman_string) is not str or roman_string is None:
 
-        return 0
 
-    strg = list(roman_string[::-1].upper())
+    for n in list_num:
 
-    flag = 1
+        if max_list > n:
 
-    sum = 0
+            to_sub += n
 
-    for l in range(len(strg) - 1):
 
-        sum = sum + numerals[strg[l]]*flag
 
-        if numerals[strg[l]] <= numerals[strg[l + 1]]:
+            return (max_list - to_sub)
 
-            flag = 1
 
-            if numerals[strg[l]] > numerals[strg[l + 1]]:
 
-                flag = -1
 
-                if flag == 1:
 
-                    sum = sum + numerals[strg[len(strg) - 1]]
+        def roman_to_int(roman_string):
 
-                    if flag == -1:
+            if not roman_string:
 
-                        sum = sum - numerals[strg[len(strg) - 1]]
+                return 0
 
-                        return sum
+
+
+            if not isinstance(roman_string, str):
+
+                return 0
+
+
+
+            rom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+
+            list_keys = list(rom_n.keys())
+
+
+
+            num = 0
+
+            last_rom = 0
+
+            list_num = [0]
+
+
+
+            for ch in roman_string:
+
+                for r_num in list_keys:
+
+                    if r_num == ch:
+
+                        if rom_n.get(ch) <= last_rom:
+
+                            num += to_subtract(list_num)
+
+                            list_num = [rom_n.get(ch)]
+
+                        else:
+
+                            list_num.append(rom_n.get(ch))
+
+
+
+                            last_rom = rom_n.get(ch)
+
+
+
+                            num += to_subtract(list_num)
+
+
+
+                            return (num)
